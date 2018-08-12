@@ -1,6 +1,40 @@
 title: 3Four Studios Ltd
-description: Mobile application development
-markdown: kramdown
-theme: jekyll-theme-minimal
-logo: /assets/img/logo.png
 author: 3Four Studios
+email: your-email@domain.com
+description: Mobile application development
+logo: /assets/img/logo.png
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-redirect-from
+
+minima_reboot:
+  date_format: "%b %-d, %Y"
+  date_format_short: "%b %-d"
+
+header_pages:
+- about.md
+- posts.md
+- github.md
+
+footer_icons:
+- username: -simon-browne-
+  url: https://www.linkedin.com/in/-simon-browne-/
+  icon: LinkedIn.svg
+- username: -simon-browne-
+  url: https://www.linkedin.com/in/-simon-browne-/
+  icon: Twitter_Logo_Blue.svg
+- username: Simon3FourStudios/
+  url: https://github.com/Simon3FourStudios/
+  icon: icon-github.svg
+
+paginate: 5
+
+markdown: kramdown
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - minima-reboot.gemspec

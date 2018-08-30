@@ -18,11 +18,19 @@ layout: default
     {% assign date_format = site.minima_reboot.date_format | default: "%b %-d, %Y" %}
     {% for post in posts %}
       <li class="py-2">
-        <span class="text-secondary">{{ post.date | date: date_format }}</span>
-
+        {% if post.image_thumb %}
+          <img src="{{ post.image_thumb | relative_url }}"
+          {% if post.image_alt_text %}
+            alt="{{ post.image_alt_text | escape }}"
+          {% endif %}
+          >
+        {% endif %}
+        
         <h1 class="mt-1 mb-3 h3">
           <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
         </h1>
+  
+        <span class="text-secondary">{{ post.date | date: date_format }}</span>
 
         <div class="text-justify">
           {{ post.excerpt }}

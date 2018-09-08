@@ -1,6 +1,5 @@
 title: 3Four Studios Ltd
-author: 3Four Studios
-email: your-email@domain.com
+author: ""
 description: Mobile application development
 logo: /assets/img/logo.png
 
@@ -23,10 +22,10 @@ footer_icons:
 - username: -simon-browne-
   url: https://www.linkedin.com/in/-simon-browne-/
   icon: LinkedIn.svg
-- username: -simon-browne-
-  url: https://www.linkedin.com/in/-simon-browne-/
+- username: "@3FourStudios"
+  url: https://twitter.com/3FourStudios/
   icon: Twitter_Logo_Blue.svg
-- username: Simon3FourStudios/
+- username: Simon3FourStudios
   url: https://github.com/Simon3FourStudios/
   icon: icon-github.svg
 

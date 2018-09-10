@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-This is the website for 3Four Studios Ltd., developers of cross-platfornm smartphone applications.
+This is the website for 3Four Studios Ltd., developers of cross-platform smartphone applications.
 
 ![profile pic](/assets/img/profile-pic.jpg)
 

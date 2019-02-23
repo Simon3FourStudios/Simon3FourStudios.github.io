@@ -2,6 +2,7 @@ title: 3Four Studios Ltd
 author: ""
 description: Mobile application development
 logo: /assets/img/logo.png
+url: https://3fourstudios.com
 
 plugins:
   - jekyll-seo-tag

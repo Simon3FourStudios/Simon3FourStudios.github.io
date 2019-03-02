@@ -22,14 +22,25 @@
     font-size: 12px;
 }
 
-.sociallinks {
-    margin: 2px;
-    clear: both;
-    align-items: center;
+#sociallinks span {
+    margin: 0 10px;
+}
+
+#sociallinks a {
+    :hover { color: white; text-decoration: none }
+}
+
+#sociallinks img {
+    :hover { color: white; text-decoration: none }
+}
+
+#sociallinks span {
+    :hover { color: white; text-decoration: none }
 }
 
 .socialtwitter {
     margin: 0;
+    padding: 2px;
     background-color: #38A1F3;
     color: white;
     font-size: 12px;
@@ -38,6 +49,7 @@
 
 .socialfacebook {
     margin: 0;
+    padding: 2px;
     background-color: #3b5998;
     color: white;
     font-size: 12px;
@@ -46,6 +58,7 @@
 
 .sociallinkedin {
     margin: 0;
+    padding: 2px;
     background-color: #0077B5;
     color: white;
     font-size: 12px;

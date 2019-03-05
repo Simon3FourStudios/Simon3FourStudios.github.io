@@ -21,6 +21,26 @@ layout: default
         {{ page.date | date: date_format }}
       </time>
     </p>
+    <div id="sociallinks">
+      <span>
+        <a class="socialtwitter" target="_blank" href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-show-count="false">
+          <img src="/assets/img/soc-twitter-logo.png" alt="Twitter logo" width="16" height="16" />
+          <span>Tweet</span>
+        </a>
+      </span>
+      <span>
+        <a class="socialfacebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}&amp;src=sdkpreparse">
+          <img src="/assets/img/soc-facebook-logo.png" alt="Facebook logo" width="16" height="16" />
+          <span>Share</span>
+        </a>
+      </span>
+      <span>
+        <a class="sociallinkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}&title={{ page.title | escape }}&summary={{ page.content | strip_html | xml_escape | truncate: 200 }}&source=3FourStudios">
+          <img src="/assets/img/soc-linkedin-logo.png" alt="LinkedIn logo" width="16" height="16" />
+          <span>Share</span>
+        </a>
+      </span>
+    </div>
   </header>
 
   <div class="text-justify" itemprop="articleBody" id="content">

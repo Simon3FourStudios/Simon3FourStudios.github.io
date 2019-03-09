@@ -19,11 +19,13 @@ layout: default
     {% for post in posts %}
       <li class="py-2">
         {% if post.image_thumb %}
-          <img src="{{ post.image_thumb | relative_url }}"
-          {% if post.image_alt_text %}
-            alt="{{ post.image_alt_text | escape }}"
-          {% endif %}
-          >
+          <a href="{{ post.url | relative_url }}">
+            <img src="{{ post.image_thumb | relative_url }}"
+            {% if post.image_alt_text %}
+              alt="{{ post.image_alt_text | escape }}"
+            {% endif %}
+            >
+          </a> 
         {% endif %}
         
         <h1 class="mt-1 mb-3 h3">

@@ -3,7 +3,7 @@ layout: post
 title: "Installing Ruby on the Mac"
 date: 2019-03-05
 author: Simon
-image: /assets/img/2019/03/05/ruby-logo682×683.png
+image: /assets/img/2019/03/05/ruby-logo1024×683.png
 image_thumb: /assets/img/2019/03/05/ruby-logo160x160.png
 image_alt_text: The logo of the Ruby computer language
 image_credits: The Ruby logo is Copyright © 2006, Yukihiro Matsumoto

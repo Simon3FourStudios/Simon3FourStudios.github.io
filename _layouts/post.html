@@ -23,7 +23,7 @@ layout: default
     </p>
     <div id="sociallinks">
       <span>
-        <a class="socialtwitter" target="_blank" href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-show-count="false">
+        <a class="socialtwitter" target="_blank" href="https://twitter.com/share?url={{ site.url }}{{ page.url }}&text={{ page.title | escape }}" data-show-count="false">
           <img src="/assets/img/soc-twitter-logo.png" alt="Twitter logo" width="16" height="16" />
           <span>Tweet</span>
         </a>
@@ -35,7 +35,7 @@ layout: default
         </a>
       </span>
       <span>
-        <a class="sociallinkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}&title={{ page.title | escape }}&summary={{ page.content | strip_html | xml_escape | truncate: 200 }}&source=3FourStudios">
+        <a class="sociallinkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}">
           <img src="/assets/img/soc-linkedin-logo.png" alt="LinkedIn logo" width="16" height="16" />
           <span>Share</span>
         </a>

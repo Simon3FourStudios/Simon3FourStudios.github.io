@@ -32,4 +32,6 @@ To use Hot Reload, just build and run your app as usual. Note that you will need
 
 It has been designed to be resilient, so typing mistakes in the XAML won't cause the app to crash. It will work with MVVM, as long as the binding isn't changed. Code and resource changes are not reloaded and some view state might be lost, during the reload.
 
+![Animated GIF showing Hot Reload in action](/assets/img/2020/01/03/hot-reload-ani.gif)
+
 In summary, Hot Reload should prove to be be very useful during the UI design phase of any Xamarin.Forms app, by speeding up what can be a frustrating process of having to rebuild the app each time a change to the UI needs to be tested.

@@ -10,6 +10,7 @@ image_credits:
 tags: xamarin.forms shell
 ---
 
+In this post, I'll show you how to create an app using Xamarin.Forms Shell, add a Flyout menu with an image header and add a new page.
 This is a quick guide to getting started with Xamarin.Forms Shell. I'm going to assume that you are already familiar with Xamarin.Forms and Visual Studio 2019 or Visual Studio for Mac.
 
 Shell was added to Xamarin.Forms in v4.0 and was released in May 2019. From the [Release Notes](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/release-notes/4.0/4.0.0), Xamarin describes Shell as *"... a simplified way to express the structure and navigation for your application in a single file. No more dealing with different page types to handle setting up complicated navigation. It supports flyout menu, bottom tabs, top tabs, and an integrated search handler. A new URI based navigation routing system has been implemented in addition to the existing push/pop navigation service. Now you can route to any point in your application, no matter how deep, and handle navigation events to perform custom logic such as canceling the back action."*
@@ -34,17 +35,153 @@ Build and run the app, to make sure that everything is working. This should give
 
 
 
-We'll now add a flyout menu and use that to switch between pages. We'll also add a header image to the flyout.
+We'll now add a flyout menu and use that to switch between pages.
+
+In AppShell.xaml, find the <TabBar>  section:
+{% highlight xml %}
+{% raw %}
+<TabBar>
+    <Tab Title="Browse" Icon="tab_feed.png">
+        <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
+    </Tab>
+    <Tab Title="About" Icon="tab_about.png">
+        <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+    </Tab>
+</TabBar>
+{% endraw %}
+{% endhighlight %}
+
+Replace <TabBar> with <FlyoutItem>, including the properties:
+{% highlight xml %}
+{% raw %}
+<FlyoutItem Title="XFShell Demo"
+            FlyoutDisplayOptions="AsMultipleItems">
+    <Tab Title="Browse" Icon="tab_feed.png">
+        <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
+    </Tab>
+    <Tab Title="About" Icon="tab_about.png">
+        <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+    </Tab>
+</FlyoutItem>
+{% endraw %}
+{% endhighlight %}
+
+*Image of flyout with image*
+
+We'll also add a header image to the flyout:
+
+* Add a new 'Controls' folder under your Xamarin.Forms shared code project.
+* Within this folder, add a new XAML ContentView called 'FlyoutHeader.xaml'.
+* In 'AppShell.xaml', add a namespace for the new Controls namespace to the <Shell> tag:
+{% highlight xml %}
+{% raw %}
+xmlns:controls="clr-namespace:XFShellDemo.Controls"
+{% endraw %}
+{% endhighlight %}
+* Add the new Flyout Header control to the <Shell.FlyoutHeader> property, between <Shell.Resources> and <FlyoutItem>:
+{% highlight xml %}
+{% raw %}
+<Shell.FlyoutHeader>
+    <controls:FlyoutHeader />
+</Shell.FlyoutHeader>
+{% endraw %}
+{% endhighlight %}
+
+Run the app and you'll see the ContentView default text appearing at the top of the Flyout.
+
+*Image of flyout with default text in header*
+
+As the FlyoutHeader is just a plain old ContentView, we can design it however we want. Let's replace the default text with an image:
+* Add a png image to your iOS and Android projects.
+- I used an image that was 404x350 pixels.
+- Add the png to the project in the .Android/Resources/drawable folder.
+- Add the png to the project in the .iOS/Resources folder.
+* Open the FlyoutHeader.xaml file and replace the default StackLayout and Label:
+{% highlight xml %}
+{% raw %}
+<ContentView.Content>
+    <Grid BackgroundColor="White">
+        <Image Aspect="AspectFit"
+                Source="the_name_of_your_png" />
+    </Grid>
+</ContentView.Content>
+{% endraw %}
+{% endhighlight %}
+* Within the ContentView tag, add:
+{% highlight xml %}
+{% raw %}
+HeightRequest="200"
+{% endraw %}
+{% endhighlight %}
 
 *Image of flyout with header image*
 
 
+We can simplify the view hierarchy of the <FlyoutItem>. As our <Tab> only contain a single <ShellContent>, we can remove the <Tab> and let the implicit conversion operators handle the <ShellContent>:
+{% highlight xml %}
+{% raw %}
+<FlyoutItem Title="XFShell Demo"
+            FlyoutDisplayOptions="AsMultipleItems">
+    <ShellContent Title="Browse" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
+    <ShellContent Title="About" Icon="tab_about.png" ContentTemplate="{DataTemplate local:AboutPage}" />
+</FlyoutItem>
+{% endraw %}
+{% endhighlight %}
 
-Simplify the view hierarchy
 
 
+Let's add a new page.
+* Under the Views folder, add a new View derived from ContentPage, named MyPage.xaml.
+* Under the ViewModels folder, add a new class named MyViewModel.cs.
+* Edit MyViewModel.cs and derive the class from BaseViewModel, then add a constructor and set Title = "My Page":
+{% highlight csharp %}
+{% raw %}
+class MyViewModel : BaseViewModel
+{
+    public MyViewModel()
+    {
+        Title = "My Page";
+    }
+}
+{% endraw %}
+{% endhighlight %}
+* In MyPage.xaml.cs, add a 'using' to reference the ViewModels namespace, add a reference to MyViewModel and set the BindingContext and MyViewModel reference to a new MyViewModel object.
+* Your MyPage class should look like this:
+{% highlight csharp %}
+{% raw %}
+.
+.
+.
+using XFShellDemo.ViewModels;
+.
+.
+.
+public partial class MyPage : ContentPage
+{
+    MyViewModel viewModel;
+    
+    public MyPage()
+    {
+        InitializeComponent();
 
-Add a new page
+        BindingContext = viewModel = new MyViewModel();
+    }
+}
+{% endraw %}
+{% endhighlight %}
+* In MyPage.xaml, set the ContentPage Title parameter:
+{% highlight xml %}
+{% raw %}
+Title="{Binding Title}"
+{% endraw %}
+{% endhighlight %}
+* Add png icons to the Android and iOS resource folders, like before. These will be used on the Flyout and TabBar.
+* Finally, add a new item into the Flyout/TabBar:
+{% highlight xml %}
+{% raw %}
+<ShellContent Title="My Page" Icon="tab_ThreeFourStudiosTriangles.png" ContentTemplate="{DataTemplate local:MyPage}" />
+{% endraw %}
+{% endhighlight %}
 
 
 

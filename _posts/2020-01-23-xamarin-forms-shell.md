@@ -183,6 +183,48 @@ Title="{Binding Title}"
 {% endraw %}
 {% endhighlight %}
 
+*Images of flyout with new page item and new page itself*
 
+Finally, let's add some routing navigation. We'll save the current page in settings at shutdown and restore to that page at startup.
 
-Show URI navigation, saving the current page in settings and restoring to that page at startup.
+First, we need to name the routes within the shell. The <FlyoutItem>, <Tab> and <ShellContent> all have a Route property, so we'll name those in the AppShell.xaml:
+{% highlight xml %}
+{% raw %}
+<FlyoutItem Route="root" Title="XFShell Demo"
+            FlyoutDisplayOptions="AsMultipleItems">
+    <ShellContent Route="browse" Title="Browse" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
+    <ShellContent Route="my_page" Title="My Page" Icon="tab_ThreeFourStudiosTriangles.png" ContentTemplate="{DataTemplate local:MyPage}" />
+    <ShellContent Route="about" Title="About" Icon="tab_about.png" ContentTemplate="{DataTemplate local:AboutPage}" />
+</FlyoutItem>
+{% endraw %}
+{% endhighlight %}
+
+Next, we'll use the Xamarin.Essentials Preferences to store the current route when the app shuts down and to navigate to that route when the app restarts. In App.xaml.cs:
+{% highlight csharp %}
+{% raw %}
+.
+.
+using Xamarin.Essentials;
+.
+.
+protected override void OnStart()
+{
+    var myRoute = Preferences.Get("my_route", "");
+
+    if (myRoute != "")
+    {
+        Shell.Current.GoToAsync(myRoute);
+    }
+}
+
+protected override void OnSleep()
+{
+    var myRoute = Shell.Current.CurrentState.Location.ToString();
+    Preferences.Set("my_route", myRoute);
+}
+{% endraw %}
+{% endhighlight %}
+
+Now, when you restart the app, it will return to the page it was on when it was shutdown.
+
+*Image of the app starting on the About page*

@@ -37,7 +37,9 @@ Build and run the app, to make sure that everything is working. This should give
 
 We'll now add a flyout menu and use that to switch between pages.
 
-In AppShell.xaml, find the <TabBar>  section:
+
+In AppShell.xaml, find the &lt;TabBar&gt; section:
+
 {% highlight xml %}
 {% raw %}
 <TabBar>
@@ -51,7 +53,7 @@ In AppShell.xaml, find the <TabBar>  section:
 {% endraw %}
 {% endhighlight %}
 
-Replace <TabBar> with <FlyoutItem>, including the properties:
+Replace &lt;TabBar&gt; with &lt;FlyoutItem&gt;, including the properties:
 {% highlight xml %}
 {% raw %}
 <FlyoutItem Title="XFShell Demo"
@@ -72,13 +74,13 @@ We'll also add a header image to the flyout:
 
 * Add a new 'Controls' folder under your Xamarin.Forms shared code project.
 * Within this folder, add a new XAML ContentView called 'FlyoutHeader.xaml'.
-* In 'AppShell.xaml', add a namespace for the new Controls namespace to the <Shell> tag:
+* In 'AppShell.xaml', add a namespace for the new Controls namespace to the &lt;Shell&gt; tag:
 {% highlight xml %}
 {% raw %}
 xmlns:controls="clr-namespace:XFShellDemo.Controls"
 {% endraw %}
 {% endhighlight %}
-* Add the new Flyout Header control to the <Shell.FlyoutHeader> property, between <Shell.Resources> and <FlyoutItem>:
+* Add the new Flyout Header control to the &lt;Shell.FlyoutHeader&gt; property, between &lt;Shell.Resources&gt; and &lt;FlyoutItem&gt;:
 {% highlight xml %}
 {% raw %}
 <Shell.FlyoutHeader>
@@ -117,7 +119,7 @@ HeightRequest="200"
 *Image of flyout with header image*
 
 
-We can simplify the view hierarchy of the <FlyoutItem>. As our <Tab> only contain a single <ShellContent>, we can remove the <Tab> and let the implicit conversion operators handle the <ShellContent>:
+We can simplify the view hierarchy of the &lt;FlyoutItem&gt;. As our &lt;Tab&gt; only contain a single &lt;ShellContent&gt;, we can remove the &lt;Tab&gt; and let the implicit conversion operators handle the &lt;ShellContent&gt;:
 {% highlight xml %}
 {% raw %}
 <FlyoutItem Title="XFShell Demo"
@@ -187,7 +189,7 @@ Title="{Binding Title}"
 
 Finally, let's add some routing navigation. We'll save the current page in settings at shutdown and restore to that page at startup.
 
-First, we need to name the routes within the shell. The <FlyoutItem>, <Tab> and <ShellContent> all have a Route property, so we'll name those in the AppShell.xaml:
+First, we need to name the routes within the shell. The &lt;FlyoutItem&gt;, &lt;Tab&gt; and &lt;ShellContent&gt; all have a Route property, so we'll name those in the AppShell.xaml:
 {% highlight xml %}
 {% raw %}
 <FlyoutItem Route="root" Title="XFShell Demo"

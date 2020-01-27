@@ -1,21 +1,19 @@
 ---
 layout: post
 title: "Xamarin.Forms Shell: Getting Started"
-date: 2020-01-23
+date: 2020-01-27
 author: Simon
-image: /assets/img/2020/01/03/hot-reload1024x683.png
-image_thumb: /assets/img/2020/01/03/hot-reload240x160.png
-image_alt_text: An image of a flame emoji next to a reload emoji
+image: /assets/img/2020/01/27/XFShell1024x683.png
+image_thumb: /assets/img/2020/01/27/XFShell240x160.png
+image_alt_text: An image of an Android and iOS app, showing Xamarin.Forms Shell
 image_credits:  
-tags: xamarin.forms shell
+tags: xamarin xamarin.forms shell
 ---
 
 In this post, I'll show you how to create an app using Xamarin.Forms Shell, add a Flyout menu with an image header and add a new page.
 This is a quick guide to getting started with Xamarin.Forms Shell. I'm going to assume that you are already familiar with Xamarin.Forms and Visual Studio 2019 or Visual Studio for Mac.
 
 Shell was added to Xamarin.Forms in v4.0 and was released in May 2019. From the [Release Notes](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/release-notes/4.0/4.0.0), Xamarin describes Shell as *"... a simplified way to express the structure and navigation for your application in a single file. No more dealing with different page types to handle setting up complicated navigation. It supports flyout menu, bottom tabs, top tabs, and an integrated search handler. A new URI based navigation routing system has been implemented in addition to the existing push/pop navigation service. Now you can route to any point in your application, no matter how deep, and handle navigation events to perform custom logic such as canceling the back action."*
-
-Which sounds good, as I'm all for simplification.
 
 The idea is that instead of using MasterDetailPage, TabbedPage or NavigationPage as the basis for your app, you can configure Shell to handle all of these different layout styles.
 
@@ -27,11 +25,26 @@ Create a new project, using the Xamarin.Forms Shell template:
 
 *VS 2019*
 
+![An image showing the Create New Project dialog in Visual Studio 2019, with Mobile App (Xamarin.Forms) selected](/assets/img/2020/01/27/vs2019-proj-template.png)
+
+![An image showing the Configure New Project dialog in Visual Studio 2019](/assets/img/2020/01/27/vs2019-proj-config.png)
+
+![An image showing the Select a Template dialog in Visual Studio 2019, with Shell selected](/assets/img/2020/01/27/vs2019-proj-shell.png)
+
+
 *VS for Mac*
+
+![An image showing the Choose a Template page of the New Project dialog in Visual Studio for Mac, with Shell Forms App selected](/assets/img/2020/01/27/vsmac-proj-template.png)
+
+![An image showing the first Configure page of the New Project dialog in Visual Studio for Mac](/assets/img/2020/01/27/vsmac-proj-shell.png)
+
+![An image showing the second Configure page of the New Project dialog in Visual Studio for Mac](/assets/img/2020/01/27/vsmac-proj-config.png)
 
 Build and run the app, to make sure that everything is working. This should give you a simple list view and an About page, with a Tab Bar at the bottom of the screen, allowing you to switch between the two pages.
 
-*Animated GIF showing switching between 2 pages*
+![An animation showing the Android app switching between pages using the tab bar](/assets/img/2020/01/27/XFShellDemoAndroid1.gif)
+
+![An animation showing the iOS app switching between pages using the tab bar](/assets/img/2020/01/27/XFShellDemoiOS1.gif)
 
 
 
@@ -53,7 +66,7 @@ In AppShell.xaml, find the &lt;TabBar&gt; section:
 {% endraw %}
 {% endhighlight %}
 
-Replace &lt;TabBar&gt; with &lt;FlyoutItem&gt;, including the properties:
+Replace &lt;TabBar&gt; with &lt;FlyoutItem&gt;, including the Title and FlyoutDisplayOptions properties:
 {% highlight xml %}
 {% raw %}
 <FlyoutItem Title="XFShell Demo"
@@ -68,9 +81,13 @@ Replace &lt;TabBar&gt; with &lt;FlyoutItem&gt;, including the properties:
 {% endraw %}
 {% endhighlight %}
 
-*Image of flyout with image*
+Run the app and you should now see a hamburger menu which expands when tapped.
 
-We'll also add a header image to the flyout:
+![An animation showing the Android app switching between pages using the flyout menu](/assets/img/2020/01/27/XFShellDemoAndroid2.gif)
+
+![An animation showing the iOS app switching between pages using the flyout menu](/assets/img/2020/01/27/XFShellDemoiOS2.gif)
+
+We'll also add a header to the flyout:
 
 * Add a new 'Controls' folder under your Xamarin.Forms shared code project.
 * Within this folder, add a new XAML ContentView called 'FlyoutHeader.xaml'.
@@ -91,14 +108,17 @@ xmlns:controls="clr-namespace:XFShellDemo.Controls"
 
 Run the app and you'll see the ContentView default text appearing at the top of the Flyout.
 
-*Image of flyout with default text in header*
+![An image showing the Android app with a header in the flyout menu](/assets/img/2020/01/27/vs2019-flyout-header1.png)
+
+![An image showing the iOS app with a header in the flyout menu](/assets/img/2020/01/27/vsmac-flyout-header1.png)
+
 
 As the FlyoutHeader is just a plain old ContentView, we can design it however we want. Let's replace the default text with an image:
 * Add a png image to your iOS and Android projects.
 - I used an image that was 404x350 pixels.
 - Add the png to the project in the .Android/Resources/drawable folder.
 - Add the png to the project in the .iOS/Resources folder.
-* Open the FlyoutHeader.xaml file and replace the default StackLayout and Label:
+* Open the FlyoutHeader.xaml file and replace the default &lt;StackLayout&gt; and &lt;Label&gt;:
 {% highlight xml %}
 {% raw %}
 <ContentView.Content>
@@ -109,14 +129,17 @@ As the FlyoutHeader is just a plain old ContentView, we can design it however we
 </ContentView.Content>
 {% endraw %}
 {% endhighlight %}
-* Within the ContentView tag, add:
+* Within the &lt;ContentView&gt; tag, add the property:
 {% highlight xml %}
 {% raw %}
 HeightRequest="200"
 {% endraw %}
 {% endhighlight %}
 
-*Image of flyout with header image*
+
+![An image showing the Android app with an image header in the flyout menu](/assets/img/2020/01/27/vs2019-flyout-header2.png)
+
+![An image showing the iOS app with an image header in the flyout menu](/assets/img/2020/01/27/vsmac-flyout-header2.png)
 
 
 We can simplify the view hierarchy of the &lt;FlyoutItem&gt;. As our &lt;Tab&gt; only contain a single &lt;ShellContent&gt;, we can remove the &lt;Tab&gt; and let the implicit conversion operators handle the &lt;ShellContent&gt;:
@@ -148,7 +171,7 @@ class MyViewModel : BaseViewModel
 {% endraw %}
 {% endhighlight %}
 * In MyPage.xaml.cs, add a 'using' to reference the ViewModels namespace, add a reference to MyViewModel and set the BindingContext and MyViewModel reference to a new MyViewModel object.
-* Your MyPage class should look like this:
+* Your MyPage class should look something like this:
 {% highlight csharp %}
 {% raw %}
 .
@@ -171,21 +194,25 @@ public partial class MyPage : ContentPage
 }
 {% endraw %}
 {% endhighlight %}
-* In MyPage.xaml, set the ContentPage Title parameter:
+* In MyPage.xaml, set the &lt;ContentPage&gt; Title property:
 {% highlight xml %}
 {% raw %}
 Title="{Binding Title}"
 {% endraw %}
 {% endhighlight %}
-* Add png icons to the Android and iOS resource folders, like before. These will be used on the Flyout and TabBar.
-* Finally, add a new item into the Flyout/TabBar:
+* Add png icons to the Android and iOS resource folders, like before. These will be used on the Flyout menu and TabBar.
+* Finally, add the new menu item into the Flyout/TabBar, between 'Browse' and 'About':
 {% highlight xml %}
 {% raw %}
 <ShellContent Title="My Page" Icon="tab_ThreeFourStudiosTriangles.png" ContentTemplate="{DataTemplate local:MyPage}" />
 {% endraw %}
 {% endhighlight %}
 
-*Images of flyout with new page item and new page itself*
+![An image showing the Android app with the new menu item in the flyout menu](/assets/img/2020/01/27/vs2019-new-page-flyout.png)
+![An image showing the Android app with the newly added page](/assets/img/2020/01/27/vs2019-new-page.png)
+
+![An image showing the iOS app with the new menu item in the flyout menu](/assets/img/2020/01/27/vsmac-new-page-flyout.png)
+![An image showing the iOS app with the newly added page](/assets/img/2020/01/27/vsmac-new-page.png)
 
 Finally, let's add some routing navigation. We'll save the current page in settings at shutdown and restore to that page at startup.
 
@@ -229,4 +256,7 @@ protected override void OnSleep()
 
 Now, when you restart the app, it will return to the page it was on when it was shutdown.
 
-*Image of the app starting on the About page*
+![An animation showing the Android app starting up with the About page active](/assets/img/2020/01/27/XFShellDemoAndroid3.gif)
+
+![An animation showing the iOS app starting up with the About page active](/assets/img/2020/01/27/XFShellDemoiOS3.gif)
+

@@ -200,7 +200,7 @@ public partial class MyPage : ContentPage
 Title="{Binding Title}"
 {% endraw %}
 {% endhighlight %}
-* Add png icons to the Android and iOS resource folders, like before. These will be used on the Flyout menu and TabBar.
+* Add png icons (32x28 pixels) to the Android and iOS resource folders, like before. These will be used on the Flyout menu and TabBar.
 * Finally, add the new menu item into the Flyout/TabBar, between 'Browse' and 'About':
 {% highlight xml %}
 {% raw %}

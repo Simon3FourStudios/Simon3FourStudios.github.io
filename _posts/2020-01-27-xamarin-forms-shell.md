@@ -5,13 +5,12 @@ date: 2020-01-27
 author: Simon
 image: /assets/img/2020/01/27/XFShell1024x683.png
 image_thumb: /assets/img/2020/01/27/XFShell240x160.png
-image_alt_text: An image of an Android and iOS app, showing Xamarin.Forms Shell
+image_alt_text: An image of an Android and iOS app, built using Xamarin.Forms Shell
 image_credits:  
 tags: xamarin xamarin.forms shell
 ---
 
-In this post, I'll show you how to create an app using Xamarin.Forms Shell, add a Flyout menu with an image header and add a new page.
-This is a quick guide to getting started with Xamarin.Forms Shell. I'm going to assume that you are already familiar with Xamarin.Forms and Visual Studio 2019 or Visual Studio for Mac.
+This is a quick guide to getting started with Xamarin.Forms Shell. I'll show you how to create an app using Xamarin.Forms Shell, add a Flyout menu with an image header and add a new page. I'm going to assume that you are already familiar with Xamarin.Forms and Visual Studio 2019 or Visual Studio for Mac.
 
 Shell was added to Xamarin.Forms in v4.0 and was released in May 2019. From the [Release Notes](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/release-notes/4.0/4.0.0), Xamarin describes Shell as *"... a simplified way to express the structure and navigation for your application in a single file. No more dealing with different page types to handle setting up complicated navigation. It supports flyout menu, bottom tabs, top tabs, and an integrated search handler. A new URI based navigation routing system has been implemented in addition to the existing push/pop navigation service. Now you can route to any point in your application, no matter how deep, and handle navigation events to perform custom logic such as canceling the back action."*
 
@@ -228,12 +227,14 @@ First, we need to name the routes within the shell. The &lt;FlyoutItem&gt;, &lt;
 {% endraw %}
 {% endhighlight %}
 
-Next, we'll use the Xamarin.Essentials Preferences to store the current route when the app shuts down and to navigate to that route when the app restarts. In App.xaml.cs:
+Next, we'll use the Xamarin.Essentials Preferences to store the current page route when the app shuts down and to navigate to that page when the app restarts. You can find the current page route by using the Shell.Current.CurrentState.Location property. You can navigate to a page using Shell.Current.GoToAsync(). In App.xaml.cs:
 {% highlight csharp %}
 {% raw %}
 .
 .
+.
 using Xamarin.Essentials;
+.
 .
 .
 protected override void OnStart()
@@ -260,3 +261,10 @@ Now, when you restart the app, it will return to the page it was on when it was 
 
 ![An animation showing the iOS app starting up with the About page active](/assets/img/2020/01/27/XFShellDemoiOS3.gif)
 
+There's more to Shell than what I have covered here, including adding top tabs within a page and the ability to add search functionality to the top of a page.
+
+See the official Microsoft documentation of Shell here:
+[https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell/](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell/)
+
+You can find the source code to this project on GitHub here:
+[https://github.com/Simon3FourStudios/XFShellDemo](https://github.com/Simon3FourStudios/XFShellDemo)

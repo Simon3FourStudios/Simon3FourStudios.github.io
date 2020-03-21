@@ -14,7 +14,7 @@ With the latest releases of iOS and Android bringing OS support for Dark and Lig
 
 *A quick note: I won't be going into depth about how to fully implement themes in your app, as this has been covered elsewhere by others. I've added [links](#heading-links-section) to the web pages that I found useful at the bottom of this article and also a link to my project on GitHub, where you can see this in action.*
 
-###How do we use themes in Xamarin.Forms?
+### How do we use themes in Xamarin.Forms?
 The way we use themes is that instead of hard-coding our colours and styles in the controls we use, we define them in a ResourceDictionary and reference those definitions in the controls.
 
 For example, instead of this:
@@ -69,7 +69,7 @@ and then reference these using the DynamicResource markup extension in our Conte
 
 This way, the ContentPage remains the same, but by changing which ResourceDictionary is in use, by setting **Application.Current.Resources**, we can change the colours across that page.
 
-###Styles
+### Styles
 In Xamarin.Forms, we use styles to apply the same set of visual properties (colours, font sizes, etc.) to all instances of a particular control type. For example, we might want all of our buttons to have a grey background and white text. This reduces the amount of duplication in our code and enables us to change those properties in one place, rather than having to find and change every instance of that control.
 
 For example, instead of this:
@@ -110,7 +110,7 @@ we can do this:
 
 The styles need to be part of the ResourceDictionary, as they are applied globally across the application, but this then creates duplication across the themes, meaning that if we want to change a particular style, we will need to go into each theme and change it.
 
-###How do we avoid duplicating the styles?
+### How do we avoid duplicating the styles?
 
 {% comment %}
 

@@ -12,10 +12,10 @@ tags: xamarin xamarin.forms themes styles dark light
 
 With the latest releases of iOS and Android bringing OS support for Dark and Light modes, I set out to discover how to handle this within a Xamarin.Forms app. I found some great articles by both the Xamarin team and the community, explaining how to add themes to your app and switch between them and also how to detect which theme is active in your OS. Having read these articles, there was one aspect that I hadn't seen covered anywhere, so I thought I'd share my findings below.
 
-*A quick note: I won't be going into depth about how to fully implement themes in your app, as this has been covered elsewhere by others. I've added [links](#Links) to the web pages that I found useful at the bottom of this article and also a link to my project on GitHub, where you can see this in action.*
+*A quick note: I won't be going into depth about how to fully implement themes in your app, as this has been covered elsewhere by others. I've added [links](#links) to the web pages that I found useful at the bottom of this article and also a link to [my project on GitHub](https://github.com/Simon3FourStudios/XFSharedStyles), where you can see this in action.*
 
 ### How do we use themes in Xamarin.Forms?
-The way we use themes is that instead of hard-coding our colours and styles in the controls we use, we define them in a ResourceDictionary and reference those definitions in the controls.
+The way we use themes is by instead of hard-coding our colours and styles in the controls we use, we define them in a ResourceDictionary and reference those definitions in the controls.
 
 For example, instead of this:
 
@@ -108,7 +108,7 @@ we can do this:
 {% endraw %}
 {% endhighlight %}
 
-The styles need to be part of the ResourceDictionary, as they are applied globally across the application, but this then creates duplication across the themes, meaning that if we want to change a particular style, we will need to go into each theme and change it.
+The styles need to be part of the theme's ResourceDictionary, as they are applied globally across the application, but this then creates duplication across the themes, meaning that if we want to change a particular style, we will need to go into each theme and change it.
 
 ### How do we avoid duplicating the styles?
 We can avoid this duplication by making use of [Merged Resource Dictionaries](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/resource-dictionaries#merged-resource-dictionaries). These allow you to combine one or more ResourceDictionary objects into another ResourceDictionary.
@@ -152,7 +152,7 @@ Now each of your Themes will also include your Styles, meaning that now you only
 ## Links ##
 [Find my example project on GitHub](https://github.com/Simon3FourStudios/XFSharedStyles)
 
-*[David Ortinau: Modernizing iOS Apps for Dark Mode with Xamarin](https://devblogs.microsoft.com/xamarin/modernizing-ios-apps-dark-mode-xamarin/)
-*[Brandon Minnick: Check for Dark Mode in Xamarin.Forms](https://codetraveler.io/2019/09/11/check-for-dark-mode-in-xamarin-forms/)
-*[James Montemagno: Hanselman.Forms](https://github.com/jamesmontemagno/Hanselman.Forms)
-*[Hussain Abbasi: How To Support Dark Mode In Xamarin.Forms](https://intelliabb.com/2019/11/02/how-to-support-dark-mode-in-xamarin-forms/)
+* [David Ortinau: Modernizing iOS Apps for Dark Mode with Xamarin](https://devblogs.microsoft.com/xamarin/modernizing-ios-apps-dark-mode-xamarin/)
+* [Brandon Minnick: Check for Dark Mode in Xamarin.Forms](https://codetraveler.io/2019/09/11/check-for-dark-mode-in-xamarin-forms/)
+* [James Montemagno: Hanselman.Forms](https://github.com/jamesmontemagno/Hanselman.Forms)
+* [Hussain Abbasi: How To Support Dark Mode In Xamarin.Forms](https://intelliabb.com/2019/11/02/how-to-support-dark-mode-in-xamarin-forms/)

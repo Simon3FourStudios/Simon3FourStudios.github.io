@@ -41,21 +41,23 @@ layout: default
         </a>
       </span>
     </div>
-  </header>
-
-  <div class="text-justify" itemprop="articleBody" id="content">
+    <p></p>
     {% if page.image %}
       <img class="mainimage" src="{{ page.image | relative_url }}"
       {% if page.image_alt_text %}
         alt="{{ page.image_alt_text | escape }}"
       {% endif %}
       >
+      <p></p>
       {% if page.image_credits %}
         <div class="imagecredits">
           {{ page.image_credits | escape }}
         </div>
       {% endif %}
     {% endif %}
+  </header>
+
+  <div class="text-justify" itemprop="articleBody" id="content">
     <p></p>
     {{ content }}
   </div>

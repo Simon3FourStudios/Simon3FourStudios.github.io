@@ -22,9 +22,9 @@ The Linux subsystem was originally created by MS to support Project Astoria, a t
 
 In this example, I'm showing an install of the Ubuntu image. I would imagine that the other images work in a similar way.
 
-First, enable WSL support in Windows. This can be done in two ways, either with Powershell or through the control panel.
+First, enable WSL support in Windows. This can be done in two ways, either with PowerShell or through the control panel.
 
-Powershell:
+PowerShell:
 Open PowerShell as Administrator and run
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
@@ -32,7 +32,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 
 Control Panel:
 
-![Ubuntu page in the Microsoft Store](/assets/img/2019/05/06/controlpanel.png)
+![The Windows Features control panel](/assets/img/2019/05/06/controlpanel.png)
 
 Open the Start menu and start typing 'Turn Windows features on or off'.
 Once it appears, click on the icon to launch its control panel.

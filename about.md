@@ -8,8 +8,6 @@ This is the website for 3Four Studios Ltd., developers of cross-platform smartph
 
 ![profile pic](/assets/img/profile-pic.jpg)
 
-Simon Browne is a highly motivated, passionate and dedicated software developer, with over twenty years' experience in all aspects of software development, with a proven track record of continuous improvement and high-quality delivery.
+Simon Browne is a qualified Xamarin Certified Mobile Professional, experienced team leader, mentor and agile developer with Professional Scrum Master certification.
 
-A qualified Xamarin Certified Mobile Professional, experienced team-leader and an agile developer with Professional Scrum Master certification, he recogmises the importance of balancing quality with new features and that a good customer experience is vital.
-
-Currently focusing on Xamarin cross-platform mobile development for iOS and Android, having previously worked with C#/.NET, C++/MFC, ASP.NET and some HTML, CSS and JavaScript.
+"Having worked as a software developer for over 25 years in all aspects of development, from junior through senior to team leader, I have gained a wealth of experience, covering many areas. From desktop Windows development in C++, to embedded development using ARM processors, to web-based technologies, using C#, ASP.NET, HTML and JavaScript and most recently to cross-platform smartphone development, using Xamarin and Xamarin.Forms."

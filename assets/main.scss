@@ -3,10 +3,14 @@
 
 @import "minima-reboot";
 
-.mainimage {
+.heroimage {
     max-width:100%;
     height:auto;
     max-height:100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .article_data {
@@ -18,8 +22,9 @@
 }
 
 .imagecredits {
-    float: left;
     font-size: 12px;
+    text-align: right;
+    width: 100%;
 }
 
 #sociallinks span {

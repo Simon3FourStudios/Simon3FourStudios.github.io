@@ -1,0 +1,17 @@
+{% if page.image %}
+<div>
+<picture>
+{% if page.image_alt_text %}
+<img class="heroimage" src="{{ page.image | relative_url }}" alt="{{ page.image_alt_text | escape }}">
+{% else %}
+<img class="heroimage" src="{{ page.image | relative_url }}">
+{% endif %}
+</picture>
+{% if page.image_credits %}
+<div class="imagecredits">
+{{ page.image_credits | escape }}
+</div>
+<br>
+{% endif %}
+</div>
+{% endif %}

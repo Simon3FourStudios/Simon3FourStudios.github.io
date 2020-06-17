@@ -7,7 +7,6 @@ url: https://3fourstudios.com
 plugins:
   - jekyll-seo-tag
   - jekyll-paginate
-  - jekyll-feed
   - jekyll-redirect-from
 
 minima_reboot:

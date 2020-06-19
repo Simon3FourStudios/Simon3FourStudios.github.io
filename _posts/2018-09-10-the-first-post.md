@@ -2,7 +2,7 @@
 layout: post
 title: "The First Post"
 date: 2018-09-10
-author: Simon
+written_by: Simon
 image: /assets/img/2018/09/10/code-screen1024x683.jpg
 image_thumb: /assets/img/2018/09/10/code-screen240x160.jpg
 image_alt_text: Computer screen displaying multi-coloured lines of code

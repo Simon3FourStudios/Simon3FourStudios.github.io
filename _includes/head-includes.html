@@ -3,30 +3,27 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileColor" content="#da532c" />
 <meta name="theme-color" content="#ffffff">
 
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@3FourStudios">
-<meta name="twitter:creator" content="@3FourStudios">
 {% if page.title %}
-<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:title" content="{{ page.title }}" />
 {% else %}
-<meta name="twitter:title" content="{{ site.title }}">
+<meta name="twitter:title" content="{{ site.title }}" />
 {% endif %}
 {% if page.url %}
-<meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+<meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
 {% endif %}
 {% if page.description %}
-<meta name="twitter:description" content="{{ page.meta_description }}">
+<meta name="twitter:description" content="{{ page.meta_description }}" />
 {% else %}
-<meta name="twitter:description" content="{{ page.content | strip_html | xml_escape | truncate: 200 }}">
+<meta name="twitter:description" content="{{ page.content | strip_html | xml_escape | truncate: 200 }}" />
 {% endif %}
 {% if page.image %}
-<meta name="twitter:image" content="{{ site.url }}{{ page.image }}">
+<meta name="twitter:image" content="{{ site.url }}{{ page.image }}" />
 {% else %}
-<meta name="twitter:image" content="{{ site.url }}{{ site.logo }}">
+<meta name="twitter:image" content="{{ site.url }}{{ site.logo }}" />
 {% endif %}
 {% if page.image_alt_text %}
-<meta name="twitter:image:alt" content="{{ page.image_alt_text }}">
+<meta name="twitter:image:alt" content="{{ page.image_alt_text }}" />
 {% endif %}

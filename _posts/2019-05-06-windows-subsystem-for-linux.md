@@ -2,7 +2,7 @@
 layout: post
 title: "Windows Subsystem for Linux"
 date: 2019-05-06
-author: Simon
+written_by: Simon
 image: /assets/img/2019/05/06/wsl800x450.png
 image_thumb: /assets/img/2019/05/06/wsl284x160.png
 image_alt_text: The Linux penguin next to the Windows 10 logo

@@ -2,7 +2,7 @@
 layout: post
 title: "Xamarin.Forms Shell: Getting Started"
 date: 2020-01-27
-author: Simon
+written_by: Simon
 image: /assets/img/2020/01/27/XFShell1024x683.png
 image_thumb: /assets/img/2020/01/27/XFShell240x160.png
 image_alt_text: An image of an Android and iOS app, built using Xamarin.Forms Shell

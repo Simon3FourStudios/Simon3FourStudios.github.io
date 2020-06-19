@@ -6,11 +6,11 @@ layout: default
   <header class="pt-4 pb-3">
     <h1 itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="text-secondary article_data">
-      {% if page.author %}
+      {% if page.written_by %}
         {% if page.author_url %}
           <a href="{{ page.author_url }}">
         {% endif %}
-        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">by {{ page.author }}</span></span>
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">by {{ page.written_by }}</span></span>
         {% if page.author_url %}
           </a>
         {% endif %}

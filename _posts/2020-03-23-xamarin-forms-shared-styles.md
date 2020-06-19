@@ -2,7 +2,7 @@
 layout: post
 title: "Xamarin.Forms: Sharing Styles across Light and Dark Themes"
 date: 2020-03-23
-author: Simon
+written_by: Simon
 image: /assets/img/2020/03/23/shared-styles1024x683.png
 image_thumb: /assets/img/2020/03/23/shared-styles240x160.png
 image_alt_text: An image of two apps, one in Light Mode, the other in Dark Mode.

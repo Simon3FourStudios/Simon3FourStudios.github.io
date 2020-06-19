@@ -1,8 +1,20 @@
 title: 3Four Studios Ltd
-author: ""
+tagline: Cross-platform mobile application development
+author: "3FourStudios"
 description: Cross-platform mobile application development
 logo: /assets/img/logo.png
 url: https://3fourstudios.com
+twitter:
+  card: summary_large_image
+  username: 3FourStudios
+social:
+  name: 3FourStudios
+  links:
+    - https://twitter.com/3FourStudios/
+    - https://www.linkedin.com/in/-simon-browne-/
+    - https://github.com/Simon3FourStudios/
+author:
+  twitter: 3FourStudios
 
 plugins:
   - jekyll-seo-tag

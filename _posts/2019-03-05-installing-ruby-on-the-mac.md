@@ -2,7 +2,7 @@
 layout: post
 title: "Installing Ruby on the Mac"
 date: 2019-03-05
-author: Simon
+written_by: Simon
 image: /assets/img/2019/03/05/ruby-logo1024×683.png
 image_thumb: /assets/img/2019/03/05/ruby-logo160x160.png
 image_alt_text: The logo of the Ruby computer language

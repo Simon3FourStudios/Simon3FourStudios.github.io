@@ -2,7 +2,7 @@
 layout: post
 title: "XAML Hot Reload for Xamarin.Forms: What's it all about?"
 date: 2020-01-03
-author: Simon
+written_by: Simon
 image: /assets/img/2020/01/03/hot-reload1024x683.png
 image_thumb: /assets/img/2020/01/03/hot-reload240x160.png
 image_alt_text: A flame emoji next to a reload emoji

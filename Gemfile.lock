@@ -253,7 +253,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  faraday (= 0.17.3)
   github-pages
 
 BUNDLED WITH
